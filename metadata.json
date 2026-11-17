@@ -1,0 +1,6 @@
+{
+  "name": "Meridian Terminal",
+  "description": "Real-time stock market analysis, multi-exchange charting, quantitative portfolio risk management, and predictive market intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

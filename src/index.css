@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --surface-canvas: #F8FAFC;
+    --surface-panel: #FFFFFF;
+    --surface-subtle: #F1F5F9;
+    --border-hairline: #E2E8F0;
+    --text-primary: #0F172A;
+    --text-muted: #475569;
+    --bull-color: #15803D;
+    --bear-color: #B91C1C;
+    --accent-color: #0284C7;
+  }
+
+  .dark {
+    --surface-canvas: #0B0F17;
+    --surface-panel: #111827;
+    --surface-subtle: #182235;
+    --border-hairline: #1F2937;
+    --text-primary: #F8FAFC;
+    --text-muted: #94A3B8;
+    --bull-color: #22C55E;
+    --bear-color: #EF4444;
+    --accent-color: #38BDF8;
+  }
+
+  [data-contrast="high"].dark {
+    --surface-canvas: #000000;
+    --surface-panel: #070A0F;
+    --surface-subtle: #111827;
+    --border-hairline: #334155;
+    --text-primary: #FFFFFF;
+    --text-muted: #CBD5E1;
+    --bull-color: #00FF88;
+    --bear-color: #FF3B5C;
+    --accent-color: #00D4FF;
+  }
+
+  [data-contrast="high"]:not(.dark) {
+    --surface-canvas: #FFFFFF;
+    --surface-panel: #FFFFFF;
+    --surface-subtle: #E2E8F0;
+    --border-hairline: #0F172A;
+    --text-primary: #000000;
+    --text-muted: #1E293B;
+    --bull-color: #006622;
+    --bear-color: #B3001B;
+    --accent-color: #0044CC;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--surface-canvas);
+    color: var(--text-primary);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono, .tabular-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom hairline scrollbars for terminal density */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Vim-style keyboard navigation active cursor highlight */
+[data-vim-active="true"] {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+  background-color: rgba(14, 165, 233, 0.12) !important;
+}
+
